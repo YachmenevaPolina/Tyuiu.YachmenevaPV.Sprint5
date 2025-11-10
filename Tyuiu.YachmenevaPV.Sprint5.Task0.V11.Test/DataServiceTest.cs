@@ -8,9 +8,8 @@ namespace Tyuiu.YachmenevaPV.Sprint5.Task0.V11.Test
         [TestMethod]
         public void Valid()
         {
-            string directory = "C:\\Users\\Ieshua\\source\\repos\\Tyuiu.YachmenevaPV.Sprint5\\Tyuiu.YachmenevaPV.Sprint5.Task0.V11\\bin\\Debug";
-            string fileName = "OutPutFileTask0.txt";
-            string fullPath = Path.Combine(directory, fileName);
+            DataService ds = new DataService();
+            string fullPath = ds.SaveToFileTextData(3);
 
             FileInfo fileInfo = new FileInfo(fullPath);
             bool fileExists = fileInfo.Exists;
