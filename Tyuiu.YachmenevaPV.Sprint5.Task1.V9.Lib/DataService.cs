@@ -6,7 +6,7 @@ namespace Tyuiu.YachmenevaPV.Sprint5.Task1.V9.Lib
     {
         public string SaveToFileTextData(int startValue, int stopValue)
         {
-            string directory = Directory.GetCurrentDirectory();
+            string directory = Path.GetTempPath();
             string fileName = "OutPutFileTask1.txt";
             string fullPath = Path.Combine(directory, fileName);
 
