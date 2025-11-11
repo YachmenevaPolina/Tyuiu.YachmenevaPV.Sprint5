@@ -26,7 +26,7 @@ namespace Tyuiu.YachmenevaPV.Sprint5.Task1.V9.Lib
 
                 y = Math.Round(y, 2);
 
-                File.AppendAllText(fullPath, $"{x}\t{y}\n");
+                File.AppendAllText(fullPath, $"{y}\n");
                 Console.WriteLine($"{x}\t{y}");
             }
 
