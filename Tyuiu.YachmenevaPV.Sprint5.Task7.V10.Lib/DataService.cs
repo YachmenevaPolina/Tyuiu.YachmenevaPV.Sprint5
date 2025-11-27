@@ -8,28 +8,29 @@ namespace Tyuiu.YachmenevaPV.Sprint5.Task7.V10.Lib
     {
         public string LoadDataAndSave(string path)
         {
-            string savepath = Path.Combine(Path.GetTempPath(), "OutPutDataFileTask7V10.txt");
-
-            FileInfo fileInfo = new FileInfo(savepath);
-            bool fileExists = fileInfo.Exists;
-
-            if (fileExists) { File.Delete(savepath); }
-
-            using (StreamReader reader = new StreamReader(path))
+            string Savepath = Path.Combine(Path.GetTempPath(), "OutPutDataFileTask7V10.txt");
+            FileInfo fileInfo = new FileInfo(Savepath);
+            if (fileInfo.Exists)
             {
-                string line;
-                while ((line = reader.ReadLine()) != null)
-                {
-                    string newline = "";
-                    foreach (char c in line) 
-                    { 
-                        newline += char.IsUpper(c) ? char.ToLower(c) : c; 
-                    }
-                    File.AppendAllText(savepath, newline + Environment.NewLine);
-                }
-               
+                File.Delete(Savepath);
             }
-            return savepath;
+            string str = File.ReadAllText(path);
+            string newstr = "";
+
+            foreach (char s in str)
+            {
+                if ((s >= 'A' && s <= 'Z') && (char.IsUpper(s)))
+                {
+                    newstr += char.ToLower(s);
+                }
+                else
+                {
+                    newstr += s;
+                }
+
+            }
+            File.AppendAllText(Savepath, newstr);
+            return Savepath;
         }
 
     }
